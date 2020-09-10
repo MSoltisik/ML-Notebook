@@ -22,7 +22,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.decomposition import PCA
 
 # path to the dataset file	
-FILE_PATH = 'data/NSL-KDD-Dataset.csv'
+FILE_PATH = 'NSL-KDD-Dataset.csv'
 
 st.title("Network Traffic Data Analysis")
 st.write("""
