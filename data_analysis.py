@@ -200,12 +200,8 @@ nca = make_pipeline(StandardScaler(), NeighborhoodComponentsAnalysis(n_component
 nca.fit(X_train, y_train)
 
 features_embedded = nca.transform(features)
-plt.scatter(features_embedded[:, 0], features_embedded[:, 1], c=y, s=30, cmap='Set1')
-plt.title("Testing!")
+#plt.scatter(features_embedded[:, 0], features_embedded[:, 1], c=y, s=30, cmap='Set1')
+#plt.title("Testing!")
 
-st.pyplot()
-
-# Displaying correlation info in a graph form
-#sns.set_style("whitegrid")
-#graphs = sns.pairplot(X_test)
+#st.pyplot()
 
