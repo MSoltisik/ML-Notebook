@@ -195,7 +195,7 @@ nca = make_pipeline(StandardScaler(), NeighborhoodComponentsAnalysis(n_component
 nca.fit(X_train, y_train)
 
 features_embedded = nca.transform(features)
-plt.scatter(features_embedded[:, 0], features_embedded[:, 1], c=y, s=3-, cmap='Set1')
+plt.scatter(features_embedded[:, 0], features_embedded[:, 1], c=y, s=30, cmap='Set1')
 plt.title("Testing!")
 
 st.pyplot()
