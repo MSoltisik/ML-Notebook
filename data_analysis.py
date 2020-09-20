@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 import os
 import sys
 
@@ -180,4 +183,10 @@ st.write(X_test)
 # Calculating accuracy of our predictions
 acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
+
+# Displaying correlation info in a graph form
+sns.set_style("whitegrid")
+graphs = sns.pairplot(X_test)
+
+st.write(plt.slow())
 
