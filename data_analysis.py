@@ -188,5 +188,5 @@ st.write(f"Prediction Accuracy: {acc}")
 sns.set_style("whitegrid")
 graphs = sns.pairplot(X_test)
 
-st.write(plt.slow())
+st.write(plt.show())
 
