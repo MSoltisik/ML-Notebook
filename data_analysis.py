@@ -184,9 +184,10 @@ st.write(X_test)
 acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
 
-# Displaying correlation info in a graph form
-sns.set_style("whitegrid")
-graphs = sns.pairplot(X_test)
+# Showing the label distribution among testing and training data
+st.bar_chart(X_test["attack_type"])
 
-st.write(plt.show())
+# Displaying correlation info in a graph form
+#sns.set_style("whitegrid")
+#graphs = sns.pairplot(X_test)
 
