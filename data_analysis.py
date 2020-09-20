@@ -197,7 +197,7 @@ st.write(f"Prediction Accuracy: {acc}")
 
 # Reducing the dimension to keep only the 10 most significant features
 nca = make_pipeline(StandardScaler(), NeighborhoodComponentsAnalysis(n_components=10))
-#nca.fit(X_train, y_train)
+nca.fit(X_train, y_train)
 
 #features_embedded = nca.transform(features)
 #plt.scatter(features_embedded[:, 0], features_embedded[:, 1], c=y, s=30, cmap='Set1')
