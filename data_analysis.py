@@ -144,7 +144,7 @@ st.write("Base Data:")
 st.write(data)
 
 # Showing the label distribution among testing and training data
-display_label_dist = st.checkbox("Display label distribution in the chosen dataset")
+display_label_dist = st.checkbox("Display attack type distribution in the dataset")
 if display_label_dist:
     st.markdown("Data label distribution:")
     st.bar_chart(data["attack_type"])
@@ -196,7 +196,7 @@ acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
 
 # Reducing the dimension to keep only the 10 most significant features
-#nca = make_pipeline(StandardScaler(), NeighborhoodComponentsAnalysis(n_components=10))
+nca = make_pipeline(StandardScaler(), NeighborhoodComponentsAnalysis(n_components=10))
 #nca.fit(X_train, y_train)
 
 #features_embedded = nca.transform(features)
