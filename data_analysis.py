@@ -190,6 +190,16 @@ st.write(X_test)
 acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
 
+# Reducing the dimension to keep only the 10 most significant features
+nca = make_pipeline(StandardScaler(), NeighborhoodComponentsAnalysis(n_components=10))
+nca.fit(X_train, y_train)
+
+features_embedded = nca.transform(features)
+plt.scatter(features_embedded[:, 0], features_embedded[:, 1], c=y, s=3-, cmap='Set1')
+plt.title("Testing!")
+
+st.pyplot()
+
 # Displaying correlation info in a graph form
 #sns.set_style("whitegrid")
 #graphs = sns.pairplot(X_test)
