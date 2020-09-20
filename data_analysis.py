@@ -139,7 +139,7 @@ st.write("Base Data:")
 st.write(data)
 
 # Showing the label distribution among testing and training data
-display_label_dist = st.checkbox("Display label distribution in the chosen dataset)
+display_label_dist = st.checkbox("Display label distribution in the chosen dataset")
 if display_label_dist:
     st.markdown("Data label distribution:")
     st.bar_chart(data["attack_type"])
