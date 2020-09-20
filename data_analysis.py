@@ -26,7 +26,7 @@ from sklearn.decomposition import PCA
 # Tools for dimension reduction
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import NeighborhoodComponentAnalysis
+from sklearn.neighbors import NeighborhoodComponentsAnalysis
 
 # path to the dataset file	
 FILE_PATH = 'NSL-KDD-Dataset.csv'
