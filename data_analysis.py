@@ -138,6 +138,10 @@ st.write("Data Shape: ", data.shape)
 st.write("Base Data:")
 st.write(data)
 
+# Showing the label distribution among testing and training data
+st.markdown("Data label distribution:")
+st.bar_chart(data["attack_type"])
+
 # Encoding the non-numerical data, creating a category for each value type
 def encode_text_dummy(data, name):
     dummies = pd.get_dummies(data[name])
@@ -183,13 +187,6 @@ st.write(X_test)
 # Calculating accuracy of our predictions
 acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
-
-# Showing the label distribution among testing and training data
-st.markdown("Training data label distribution:")
-st.bar_chart(X_train["attack_type"])
-
-st.markdown("Test data label distribution:")
-st.bar_chart(X_test["test_packet_attack_type"])
 
 # Displaying correlation info in a graph form
 #sns.set_style("whitegrid")
