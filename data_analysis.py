@@ -185,7 +185,7 @@ acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
 
 # Showing the label distribution among testing and training data
-st.bar_chart(X_test["attack_type"])
+st.bar_chart(X_test["test_packet_attack_type"])
 
 # Displaying correlation info in a graph form
 #sns.set_style("whitegrid")
