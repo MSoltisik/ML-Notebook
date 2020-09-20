@@ -23,6 +23,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.decomposition import PCA
 
+# Tools for dimension reduction
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import NeighborhoodComponentAnalysis
+
 # path to the dataset file	
 FILE_PATH = 'NSL-KDD-Dataset.csv'
 
