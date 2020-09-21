@@ -197,11 +197,14 @@ st.write(f"Prediction Accuracy: {acc}")
 
 # Plotting each of the features on the attack type
 def show_features_graphs(data):
-    labels = data["attack_type"]
-    features = data.drop(['attack_type', 'success_pred'], axis = 1)
+	data_labels = data["attack_type"]
+	data_features = data.drop(['attack_type', 'success_pred'], axis = 1)
 	
-    for feature in features:
-	plt.scatter(feature, labels)
-	plt.show()
+	data_labels
+	data_features[0]
+	
+    #for feature in data_features:
+	#plt.scatter(feature, data_labels)
+	#plt.show()
 
 show_features_graphs(data)
