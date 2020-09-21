@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-import matplotlib.pyplot as plt
-import seaborn as sns
+import plotly.express as px
 
 import os
 import sys
@@ -202,8 +201,10 @@ def show_features_graphs(data):
 	data_features = data.drop(['attack_type', 'success_pred'], axis = 1)
 		
 	for feature in data_features:
-		plot = plt.scatter(data[feature], data_labels)
-		plt.show()
+		fig = px.scatter(data, x=feature, y="attack_type", color="attack_type")
+		fig.show()
+		#plot = plt.scatter(data[feature], data_labels)
+		#plt.show()
 		#st.pyplot(plot)
 
 display_feature_influence = st.checkbox("Show individual feature influence")
