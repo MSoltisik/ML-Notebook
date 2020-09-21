@@ -200,7 +200,7 @@ def show_feature_importance(model, data):
 	importance_list = importance_list.sort_values(by='Importance', ascending=False)
 	importance_list
 	
-	#fig = px.bar()
+	fig = px.bar(importance_list['Feature'], importance_list['Importance'])
 	
 	
 if (selected_method == "Random Forest"):
