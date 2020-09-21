@@ -194,7 +194,7 @@ if display_label_dist:
     st.markdown("Attack type distribution in the data set:")
     st.bar_chart(data["attack_type"])
 	
-# Showing the graphs of feature importance in descending order
+# Showing the graphs of feature importance in descending order (Random FOrest only)
 def show_feature_importance(model, data):
 	importances = model.feature_importances_
 	
@@ -204,10 +204,11 @@ def show_feature_importance(model, data):
 	feature_names.remove('attack_type')
 	feature_names.remove('success_pred')
 	names = [data.feature_names[i] for i in indices]
-	
-showing_feature_importance = st.checkbox("Show feature importance")
-if showing_feature_importance:
-		show_feature_importance(model, data)
+
+if (method_name == "Random Forest"):
+	showing_feature_importance = st.checkbox("Show feature importance")
+	if showing_feature_importance:
+			show_feature_importance(model, data)
 
 # Plotting each of the features on the attack type
 def show_features_graphs(data):
