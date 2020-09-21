@@ -196,22 +196,11 @@ if display_label_dist:
 	
 # Showing the graphs of feature importance in descending order (Random Forest only)
 def show_feature_importance(model, data):
-	fimp_rf = pd.DataFrame({'Feature' : X_train.columns, 'Importance' : (model.feature_importances_).astype(float)})
-	fimp_rf = fimp_rf.sort_values(by='Importance', ascending=False)
-	fimp_rf
-
-	#importances = model.feature_importances_
-	#indices = np.argsort(importances)[::-1]
-
-	#feature_names = header_names
-	#feature_names.remove('attack_type')
-	#feature_names.remove('success_pred')
-	#names = [data[feature_names[i]] for i in indices]
-	#names
+	importance_list = pd.DataFrame({'Feature' : X_train.columns, 'Importance' : (model.feature_importances_).astype(float)})
+	importance_list = fimp_rf.sort_values(by='Importance', ascending=False)
+	importance_list
 	
-	#fig = px.bar(x=names, y=importances[indices])
-	#fig.show()
-	#st.plotly_chart(fig)
+	feature_plot(model.feature_importances_*100)
 
 if (selected_method == "Random Forest"):
 	showing_feature_importance = st.checkbox("Show feature importance")
