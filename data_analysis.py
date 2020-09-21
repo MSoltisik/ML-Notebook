@@ -201,7 +201,8 @@ def show_feature_importance(model, data):
 	importance_list
 	
 	fig = px.bar(importance_list['Feature'], importance_list['Importance'])
-	
+	fig.show()
+	st.plotly_chart(fig)
 	
 if (selected_method == "Random Forest"):
 	showing_feature_importance = st.checkbox("Show feature importance")
