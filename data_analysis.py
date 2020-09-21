@@ -203,6 +203,7 @@ def show_features_graphs(data):
 	for feature in data_features:
 		fig = px.scatter(data, x=feature, y="attack_type", color="attack_type")
 		fig.show()
+		st.plotly_chart(fig)
 		#plot = plt.scatter(data[feature], data_labels)
 		#plt.show()
 		#st.pyplot(plot)
