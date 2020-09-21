@@ -197,7 +197,7 @@ if display_label_dist:
 # Showing the graphs of feature importance in descending order (Random Forest only)
 def show_feature_importance(model, data):
 	importance_list = pd.DataFrame({'Feature' : X_train.columns, 'Importance' : (model.feature_importances_).astype(float)})
-	importance_list = fimp_rf.sort_values(by='Importance', ascending=False)
+	importance_list = importance_list.sort_values(by='Importance', ascending=False)
 	importance_list
 	
 	feature_plot(model.feature_importances_*100)
