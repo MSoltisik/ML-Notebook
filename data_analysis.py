@@ -40,7 +40,7 @@ dataset_size = st.sidebar.slider("Dataset Size", min_value = 1, max_value = 1200
 test_set_ratio = st.sidebar.slider("Test Set Ratio", min_value = 0.1, max_value = 0.9, value = 0.2)
 
 # UI selection for the ML method
-selected_method = st.sidebar.selectbox("Evaluation Method", ("Linear Regression", "Lasso", "Bayesian Ridge Regression", "KNN (K-Neighbors)", "SVM (Support Vector)", "Random Forest"))
+selected_method = st.sidebar.selectbox("Evaluation Method", ("Linear Regression", "Lasso", "Bayesian Ridge Regression", "KNN (K-Neighbors)", "SVM (Support Vector)", "Random Forest"), index=5)
 
 # Creating the UI widgets for manipulating algorithm parameters
 def show_parameter_ui(method_name):
@@ -194,7 +194,7 @@ if display_label_dist:
     st.markdown("Attack type distribution in the data set:")
     st.bar_chart(data["attack_type"])
 	
-# Showing the graphs of feature importance in descending order (Random FOrest only)
+# Showing the graphs of feature importance in descending order (Random Forest only)
 def show_feature_importance(model, data):
 	importances = model.feature_importances_
 	
