@@ -193,7 +193,21 @@ display_label_dist = st.checkbox("Show label distribution (attack type)")
 if display_label_dist:
     st.markdown("Attack type distribution in the data set:")
     st.bar_chart(data["attack_type"])
-
+	
+# Showing the graphs of feature importance in descending order
+def show_feature_importance(model, data)
+	importances = model.feature_importances_
+	
+	indices = np.argsort(importances)[::-1]
+	
+	feature_names = header_names
+	feature_names.remove('attack_type')
+	feature_names.remove('success_pred')
+	names = [data.feature_names[i] for i in indices]
+	
+showing_feature_importance = st.checkbox("Show feature importance")
+if showing_feature_importance:
+		show_feature_importance(clf, data)
 
 # Plotting each of the features on the attack type
 def show_features_graphs(data):
@@ -203,11 +217,11 @@ def show_features_graphs(data):
 	for feature in data_features:
 		display_feature = st.checkbox(feature)
 		if (display_feature):
-			st.write(feature)
+
 			fig = px.scatter(data, x=feature, y="attack_type", color="attack_type")
 			fig.show()
 			st.plotly_chart(fig)
 
-display_feature_influence = st.checkbox("Show individual feature influence")
-if display_feature_influence:
+display_individual_features = st.checkbox("Show individual feature influence")
+if display_individual_features:
 	show_features_graphs(data)
