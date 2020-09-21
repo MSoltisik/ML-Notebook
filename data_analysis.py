@@ -143,12 +143,6 @@ st.write("Data Shape: ", data.shape)
 st.write("Base Data:")
 st.write(data)
 
-# Showing the label distribution among testing and training data
-display_label_dist = st.checkbox("Display attack type distribution in the dataset")
-if display_label_dist:
-    st.markdown("Data label distribution:")
-    st.bar_chart(data["attack_type"])
-
 # Encoding the non-numerical data, creating a category for each value type
 def encode_text_dummy(data, name):
     dummies = pd.get_dummies(data[name])
@@ -195,13 +189,22 @@ st.write(X_test)
 acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
 
+# Showing the label distribution among testing and training data
+display_label_dist = st.checkbox("Show label distribution (attack type)")
+if display_label_dist:
+    st.markdown("Attack type distribution in the data set:")
+    st.bar_chart(data["attack_type"])
+
+
 # Plotting each of the features on the attack type
 def show_features_graphs(data):
 	data_labels = data["attack_type"]
 	data_features = data.drop(['attack_type', 'success_pred'], axis = 1)
 		
 	for feature in data_features:
-		plt.scatter(data[feature], data_labels)
-		plt.show()
+		plot = plt.scatter(data[feature], data_labels)
+		st.pyplot(plot)
 
-show_features_graphs(data)
+display_feature_influence = st.checkbox("Show individual feature influence")
+if display_feature_influence:
+	show_features_graphs(data)
