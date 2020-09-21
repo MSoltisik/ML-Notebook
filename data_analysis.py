@@ -195,13 +195,13 @@ st.write(X_test)
 acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
 
-# Reducing the dimension to keep only the 10 most significant features
-nca = make_pipeline(StandardScaler(), NeighborhoodComponentsAnalysis(n_components=10))
-nca.fit(X_train, y_train)
+# Plotting each of the features on the attack type
+def show_features_graphs(data):
+    labels = data["attack_type"]
+    features = data.drop(['attack_type', 'success_pred'], axis = 1)
+	
+    for feature in features:
+	plt.scatter(feature, labels)
+	plt.show()
 
-#features_embedded = nca.transform(features)
-#plt.scatter(features_embedded[:, 0], features_embedded[:, 1], c=y, s=30, cmap='Set1')
-#plt.title("Testing!")
-
-#st.pyplot()
-
+show_features_graphs(data)
