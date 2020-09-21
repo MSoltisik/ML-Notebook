@@ -200,8 +200,9 @@ def show_feature_importance(model, data):
 	importance_list = importance_list.sort_values(by='Importance', ascending=False)
 	importance_list
 	
-	feature_plot(model.feature_importances_*100)
-
+	#fig = px.bar()
+	
+	
 if (selected_method == "Random Forest"):
 	showing_feature_importance = st.checkbox("Show feature importance")
 	if showing_feature_importance:
