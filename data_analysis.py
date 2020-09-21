@@ -169,7 +169,7 @@ labels_encoded = le.fit(labels).transform(labels)
 X_train, X_test, y_train, y_test = train_test_split(features, labels_encoded, test_size = test_set_ratio, random_state = 1234)
 
 # Training
-clf.fit(X_train, y_train)
+model = clf.fit(X_train, y_train)
 
 # Making predictions on the test set
 y_pred = clf.predict(X_test)
@@ -207,7 +207,7 @@ def show_feature_importance(model, data):
 	
 showing_feature_importance = st.checkbox("Show feature importance")
 if showing_feature_importance:
-		show_feature_importance(clf, data)
+		show_feature_importance(model, data)
 
 # Plotting each of the features on the attack type
 def show_features_graphs(data):
