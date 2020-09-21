@@ -200,7 +200,7 @@ def show_feature_importance(model, data):
 	importance_list = importance_list.sort_values(by='Importance', ascending=False)
 	importance_list
 	
-	fig = px.bar(importance_list['Feature'], importance_list['Importance'])
+	fig = px.bar(x=importance_list['Feature'], y=importance_list['Importance'])
 	fig.show()
 	st.plotly_chart(fig)
 	
