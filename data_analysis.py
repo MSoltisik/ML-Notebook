@@ -203,7 +203,8 @@ def show_features_graphs(data):
 		
 	for feature in data_features:
 		plot = plt.scatter(data[feature], data_labels)
-		st.pyplot(plot)
+		plt.show()
+		#st.pyplot(plot)
 
 display_feature_influence = st.checkbox("Show individual feature influence")
 if display_feature_influence:
