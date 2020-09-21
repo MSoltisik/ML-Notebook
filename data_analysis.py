@@ -201,8 +201,7 @@ def show_features_graphs(data):
 	data_features = data.drop(['attack_type', 'success_pred'], axis = 1)
 		
 	for feature in data_features:
-		data[feature]
-		#plt.scatter(data[feature], data_labels)
-		#plt.show()
+		plt.scatter(data[feature], data_labels)
+		plt.show()
 
 show_features_graphs(data)
