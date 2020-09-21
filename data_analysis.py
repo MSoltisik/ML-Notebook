@@ -195,7 +195,7 @@ if display_label_dist:
     st.bar_chart(data["attack_type"])
 	
 # Showing the graphs of feature importance in descending order
-def show_feature_importance(model, data)
+def show_feature_importance(model, data):
 	importances = model.feature_importances_
 	
 	indices = np.argsort(importances)[::-1]
