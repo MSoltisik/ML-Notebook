@@ -204,8 +204,12 @@ def show_feature_importance(model, data):
 	feature_names.remove('attack_type')
 	feature_names.remove('success_pred')
 	names = [data.feature_names[i] for i in indices]
+	
+	fig = px.bar(x=names, y=importances[indices])
+	fig.show()
+	st.plotly_chart(fig)
 
-if (method_name == "Random Forest"):
+if (selected_method == "Random Forest"):
 	showing_feature_importance = st.checkbox("Show feature importance")
 	if showing_feature_importance:
 			show_feature_importance(model, data)
@@ -218,7 +222,6 @@ def show_features_graphs(data):
 	for feature in data_features:
 		display_feature = st.checkbox(feature)
 		if (display_feature):
-
 			fig = px.scatter(data, x=feature, y="attack_type", color="attack_type")
 			fig.show()
 			st.plotly_chart(fig)
