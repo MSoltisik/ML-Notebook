@@ -204,9 +204,9 @@ def show_features_graphs(data):
 		display_feature = st.checkbox(feature)
 		if (display_feature):
 			st.write(feature)
-		#fig = px.scatter(data, x=feature, y="attack_type", color="attack_type")
-		#fig.show()
-		#st.plotly_chart(fig)
+			fig = px.scatter(data, x=feature, y="attack_type", color="attack_type")
+			fig.show()
+			st.plotly_chart(fig)
 
 display_feature_influence = st.checkbox("Show individual feature influence")
 if display_feature_influence:
