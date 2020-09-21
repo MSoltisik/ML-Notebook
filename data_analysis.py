@@ -198,11 +198,12 @@ if display_label_dist:
 def show_feature_importance(model, data):
 	importances = model.feature_importances_
 	indices = np.argsort(importances)[::-1]
-	importances
-	#feature_names = header_names
-	#feature_names.remove('attack_type')
-	#feature_names.remove('success_pred')
-	#names = [data.feature_names[i] for i in indices]
+
+	feature_names = header_names
+	feature_names.remove('attack_type')
+	feature_names.remove('success_pred')
+	names = [data.feature_names[i] for i in indices]
+	names
 	
 	#fig = px.bar(x=names, y=importances[indices])
 	#fig.show()
