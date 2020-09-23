@@ -190,17 +190,19 @@ st.write(f"Prediction Accuracy: {acc}")
 
 # Showing prediction graphs
 def show_prediction_graph(data, feature):
-	predicted = data
+	predicted = data.copy()
+	predicted["test_packet_attack_type"] = predicted["prediction"]
+	
 	predicted["data_type"] = 'predicted'
 	data["data_type"] = 'result'
 	
 	merged_data = pd.merge(data, predicted)
 	
-	fig = px.scatter(merged_data, x=feature, y="prediction", color="data_type")
+	fig = px.scatter(merged_data, x=feature, y="test_packet_attack_type", color="data_type")
 	fig.show()
 	st.plotly_chart(fig)
 	
-st.write("Prediction graph")
+st.write("Prediction graph:")
 
 feature_names = [f for f in list(X_test.columns.values) if f not in ['test_packet_attack_type', 'prediction', 'correct']]
 show_prediction_on_feature = st.selectbox("Feature", feature_names)
