@@ -196,7 +196,7 @@ def show_prediction_graph(data, feature):
 	
 st.write("Prediction graph")
 
-feature_names = X_test.drop(['test_packet_attack_type', 'prediction', 'correct'], axis = 1)
+feature_names = [f for f in list(X_test.columns.values) if f not in ['test_packet_attack_type', 'prediction', 'correct']]
 st.write(feature_names)
 show_prediction_on_feature = st.selectbox("Feature", feature_names)
 
