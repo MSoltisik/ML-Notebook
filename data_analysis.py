@@ -191,15 +191,12 @@ st.write(f"Prediction Accuracy: {acc}")
 # Showing prediction graphs
 def show_prediction_graph(data, feature):
 	predicted = data
-	predicted["is_predicted"] = 'predicted'
-	data["is_predicted"] = 'actual result'
+	predicted["data_type"] = 'predicted'
+	data["data_type"] = 'result'
 	
-	for feature_name in list(data.columns.values):
-		st.write(feature_name)
-		data[feature_name] = data[feature_name] + predicted[feature_name]
-		st.write(data[feature_name])
+	merged_data = pd.merge(data, predicted)
 	
-	fig = px.scatter(data, x=feature, y="prediction", color="is_predicted")
+	fig = px.scatter(merged_data, x=feature, y="prediction", color="data_type")
 	fig.show()
 	st.plotly_chart(fig)
 	
