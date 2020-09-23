@@ -196,7 +196,7 @@ def show_prediction_graph(data, feature):
 	
 st.write("Prediction graph")
 
-feature_names = data.drop(['test_packet_attack_type', 'prediction', 'correct'], axis = 1)
+feature_names = X_test.drop(['test_packet_attack_type', 'prediction', 'correct'], axis = 1)
 show_prediction_on_feature = st.selectbox("Feature", feature_names)
 
 # Showing the label distribution among testing and training data
