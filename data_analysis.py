@@ -188,6 +188,17 @@ st.write(X_test)
 acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
 
+# Showing prediction graphs
+def show_prediction_graph(data, feature):	
+	fig = px.scatter(data, x=feature, y="prediction", color="attack_type")
+	fig.show()
+	st.plotly_chart(fig)
+	
+st.write("Prediction graph")
+
+feature_names = data.drop(['test_packet_attack_type', 'prediction', 'correct'], axis = 1)
+show_prediction_on_feature = st.selectbox("Feature", feature_names)
+
 # Showing the label distribution among testing and training data
 display_label_dist = st.checkbox("Show label distribution (attack type)")
 if display_label_dist:
