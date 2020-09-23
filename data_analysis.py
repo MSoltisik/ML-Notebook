@@ -198,9 +198,14 @@ def show_prediction_graph(data, feature):
 	
 	merged_data = pd.merge(data, predicted)
 	
-	fig = px.scatter(merged_data, x=feature, y="test_packet_attack_type", color="data_type")
+	#fig = px.scatter(merged_data, x=feature, y="test_packet_attack_type", color="data_type")
+	fig = px.scatter(data, x=feature, y="test_packet_attack_type")
 	fig.show()
 	st.plotly_chart(fig)
+	
+	fig2 = px.scatter(predicted, x=feature, y="test_packet_attack_type")
+	fig2.show()
+	st.plotly_chart(fig2)
 	
 st.write("Prediction graph:")
 
