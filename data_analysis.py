@@ -195,7 +195,7 @@ def show_prediction_graph(data, feature):
 	data["is_predicted"] = 'actual result'
 	
 	for feature_name in list(data.columns.values):
-	data[feature_name] = data[feature_name] + predicted[feature_name]
+		data[feature_name] = data[feature_name] + predicted[feature_name]
 	
 	fig = px.scatter(data, x=feature, y="prediction", color="is_predicted")
 	fig.show()
