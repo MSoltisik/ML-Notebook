@@ -189,8 +189,15 @@ acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
 
 # Showing prediction graphs
-def show_prediction_graph(data, feature):	
-	fig = px.scatter(data, x=feature, y="prediction", color="attack_type")
+def show_prediction_graph(data, feature):
+	predicted = data
+	predicted["is_predicted"] = 'predicted'
+	data["is_predicted"] = 'actual result'
+	
+	for feature_name in list(data.columns.values):
+	data[feature_name] = data[feature_name] + predicted[feature_name]
+	
+	fig = px.scatter(data, x=feature, y="prediction", color="is_predicted")
 	fig.show()
 	st.plotly_chart(fig)
 	
