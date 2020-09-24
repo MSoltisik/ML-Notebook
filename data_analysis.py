@@ -196,7 +196,7 @@ def show_prediction_graph(data, feature):
 	predicted["data_type"] = 'predicted'
 	data["data_type"] = 'result'
 	
-	merged_data = data.merge(predicted)
+	merged_data = data.merge(predicted, left_on=[feature, "test_packet_attack_type", "data_type"], right_on=[feature, "test_packet_attack_type", "data_type"])
 	merged_data
 	
 	#fig = px.scatter(merged_data, x=feature, y="test_packet_attack_type", color="data_type")
@@ -214,7 +214,7 @@ feature_names = [f for f in list(X_test.columns.values) if f not in ['test_packe
 show_prediction_on_feature = st.selectbox("Feature", feature_names)
 
 reduced_data = X_test.copy()
-reduced_data reduced_data[[show_prediction_on_feature, 'test_packet_attack_type', 'prediction']]
+reduced_data = reduced_data[[show_prediction_on_feature, 'test_packet_attack_type', 'prediction']]
 show_prediction_graph(reduced_data, show_prediction_on_feature)
 
 # Showing the label distribution among testing and training data
