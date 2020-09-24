@@ -196,11 +196,8 @@ def show_prediction_graph(data, feature):
 	predicted["data_type"] = 'predicted'
 	data["data_type"] = 'result'
 	
-	predicted
-	data
-	
-	merged_data = pd.merge(data, predicted)
-	#merged_data
+	merged_data = data.merge(predicted)
+	merged_data
 	
 	#fig = px.scatter(merged_data, x=feature, y="test_packet_attack_type", color="data_type")
 	fig = px.scatter(data, x=feature, y="test_packet_attack_type")
