@@ -193,6 +193,8 @@ def show_prediction_graph(data, feature):
 	predicted = data.copy()
 	predicted["test_packet_attack_type"] = predicted["prediction"]
 	
+	predicted = 
+	
 	predicted["data_type"] = 'predicted'
 	data["data_type"] = 'result'
 	
@@ -213,7 +215,12 @@ st.write("Prediction graph:")
 feature_names = [f for f in list(X_test.columns.values) if f not in ['test_packet_attack_type', 'prediction', 'correct']]
 show_prediction_on_feature = st.selectbox("Feature", feature_names)
 
-show_prediction_graph(X_test, show_prediction_on_feature)
+prediction_graph_data = X_test.copy()
+for feature in list(prediction_graph_data.columns.values) not in [show_prediction_on_feature, 'test_packet_attack_type', 'prediction']
+	prediction_graph_data.drop(feature)
+	
+prediction_graph_data
+#show_prediction_graph(prediction_graph_data, show_prediction_on_feature)
 
 # Showing the label distribution among testing and training data
 display_label_dist = st.checkbox("Show label distribution (attack type)")
