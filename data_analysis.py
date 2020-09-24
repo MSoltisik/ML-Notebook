@@ -214,7 +214,7 @@ feature_names = [f for f in list(X_test.columns.values) if f not in ['test_packe
 show_prediction_on_feature = st.selectbox("Feature", feature_names)
 
 prediction_graph_data = X_test.copy()
-test = prediction_graph_data[show_prediction_on_feature, 'test_packet_attack_type', 'prediction']
+test = prediction_graph_data[[show_prediction_on_feature, 'test_packet_attack_type', 'prediction']]
 #for feature in [f for f in list(prediction_graph_data.columns.values) if f not in [show_prediction_on_feature, 'test_packet_attack_type', 'prediction']]
 	#prediction_graph_data.drop(feature)
 	
