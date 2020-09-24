@@ -200,26 +200,22 @@ def show_prediction_graph(data, feature):
 	merged_data
 	
 	#fig = px.scatter(merged_data, x=feature, y="test_packet_attack_type", color="data_type")
-	fig = px.scatter(data, x=feature, y="test_packet_attack_type")
-	fig.show()
-	st.plotly_chart(fig)
+	#fig = px.scatter(data, x=feature, y="test_packet_attack_type")
+	#fig.show()
+	#st.plotly_chart(fig)
 	
-	fig2 = px.scatter(predicted, x=feature, y="test_packet_attack_type")
-	fig2.show()
-	st.plotly_chart(fig2)
+	#fig2 = px.scatter(predicted, x=feature, y="test_packet_attack_type")
+	#fig2.show()
+	#st.plotly_chart(fig2)
 	
 st.write("Prediction graph:")
 
 feature_names = [f for f in list(X_test.columns.values) if f not in ['test_packet_attack_type', 'prediction', 'correct']]
 show_prediction_on_feature = st.selectbox("Feature", feature_names)
 
-prediction_graph_data = X_test.copy()
-test = prediction_graph_data[[show_prediction_on_feature, 'test_packet_attack_type', 'prediction']]
-#for feature in [f for f in list(prediction_graph_data.columns.values) if f not in [show_prediction_on_feature, 'test_packet_attack_type', 'prediction']]
-	#prediction_graph_data.drop(feature)
-	
-test
-#show_prediction_graph(prediction_graph_data, show_prediction_on_feature)
+reduced_data = X_test.copy()
+reduced_data reduced_data[[show_prediction_on_feature, 'test_packet_attack_type', 'prediction']]
+show_prediction_graph(reduced_data, show_prediction_on_feature)
 
 # Showing the label distribution among testing and training data
 display_label_dist = st.checkbox("Show label distribution (attack type)")
