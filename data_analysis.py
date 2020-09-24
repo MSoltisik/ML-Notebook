@@ -193,8 +193,6 @@ def show_prediction_graph(data, feature):
 	predicted = data.copy()
 	predicted["test_packet_attack_type"] = predicted["prediction"]
 	
-	predicted = 
-	
 	predicted["data_type"] = 'predicted'
 	data["data_type"] = 'result'
 	
