@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 
 import plotly.express as px
+import plotly.graph_objs as go
 
 import os
 import sys
@@ -26,6 +27,8 @@ from sklearn.decomposition import PCA
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import NeighborhoodComponentsAnalysis
+
+from collections import Counter
 
 # path to the dataset file	
 FILE_PATH = 'NSL-KDD-Dataset.csv'
@@ -187,6 +190,28 @@ st.write(X_test)
 # Calculating accuracy of our predictions
 acc = accuracy_score(y_test, y_pred_rounded)
 st.write(f"Prediction Accuracy: {acc}")
+
+# Showing the counts of each attack type of predicted and real values of the test set
+def show_result_accuracy(results, predictions):
+    attack_types = results.unique()
+
+    predicted_counts = Counter(predictions)
+    result_counts = Counter(results)
+    
+    for attack_type in attack_types:
+        if attack_type not in predicted_counts:
+            predicted_counts[attack_type] = 0
+
+    pred_graph = px.bar(x = attack_types, y = predicted_counts, title = "Predicted Results")
+    pred_graph.update_layout(xaxis_title = "Attack Type", yaxis_title = "Count") 
+    pred_graph
+
+    res_graph = px.bar(x = attack_types, y = result_counts, title = "Real Results")
+    res_graph.update_layout(xaxis_title = "Attack Type", yaxis_title = "Count") 
+    res_graph
+
+
+show_result_accuracy(data["attack_type"], X_test["prediction"])
 
 # Showing prediction graphs
 def show_prediction_graph(data, feature):
